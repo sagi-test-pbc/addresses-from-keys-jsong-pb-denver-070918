@@ -16,7 +16,7 @@ print(addr)
 
 ### Try it
 
-#### 7.1. Find the mainnet and testnet addresses corresponding to the private keys:
+#### Find the mainnet and testnet addresses corresponding to the private keys:
 ```
 compressed, 888**3
 uncompressed, 321
@@ -25,7 +25,6 @@ uncompressed, 4242424242
 
 
 ```python
-# Exercise 7.1
 from ecc import G
 
 from helper import double_sha256, encode_base58, hash160
@@ -52,11 +51,9 @@ components = (
 
 
 ```python
-from ecc import S256Point
+from ecc import S256Point, G
 
-G = S256Point(
-    0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,
-    0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8)
+from helper import double_sha256, encode_base58, hash160
 
 class S256Point(S256Point):
 
@@ -69,21 +66,4 @@ class S256Point(S256Point):
         # encode_base58 the raw + checksum
         # return as a string, you can use .decode('ascii') to do this.
         pass
-```
-
-### Creating addresses
-
-#### 8.1. Create a testnet address using your own secret key
-#### (use your phone number if you can't think of anything)
-#### Record this secret key!
-
-
-```python
-# Exercise 8.1
-from ecc import G
-
-# use your phone number if you can't think of anything
-
-# get the public point
-# if you completed 7.2, just do the .address(testnet=True) method on the public point
 ```
